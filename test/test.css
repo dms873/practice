@@ -1,0 +1,11 @@
+div {
+  border: 1px solid gray;
+  display: inline-block;
+  align-items: center;
+  width: 250px;
+  height: 250px;
+}
+
+.hide {
+  background-color: hotpink;
+}
