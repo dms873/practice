@@ -57,13 +57,15 @@ function App() {
 
             <div className="publish">
                 <input
-                    onChange={() => {
-                        입력값변경();
+                    onChange={(e) => {
+                        입력값변경(e.target.value);
                     }}
                 />
                 <button
                     onClick={() => {
-                        글제목;
+                        var arrayCopy = [...글제목];
+                        arrayCopy.unshift(입력값);
+                        글제목변경(arrayCopy);
                     }}
                 >
                     저장
