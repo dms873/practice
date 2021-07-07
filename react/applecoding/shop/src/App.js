@@ -1,64 +1,77 @@
-import React from "react";
+import React, { useState } from "react";
+import Data from "./data";
 import { Navbar, Container, Nav, Jumbotron, Button } from "react-bootstrap";
 import "./App.css";
+import { Link, Route, Switch } from "react-router-dom";
+import Detail from "./Detail";
 
 function App() {
+    let [data, setData] = useState(Data);
+
     return (
         <div className="App">
-            <>
+            <div>
                 <Navbar bg="light" variant="light">
                     <Container>
-                        <Navbar.Brand href="#home">ShoeShop</Navbar.Brand>
+                        <Navbar.Brand href="/">ShoeShop</Navbar.Brand>
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#features">Features</Nav.Link>
+                            <Nav.Link>
+                                <Link to="/">Home</Link>
+                            </Nav.Link>
+                            <Nav.Link>
+                                <Link to="/detail">Detail</Link>
+                            </Nav.Link>
                             <Nav.Link href="#pricing">Pricing</Nav.Link>
                         </Nav>
                     </Container>
                 </Navbar>
 
-                <Jumbotron className="background">
-                    <Container>
-                        <h1>20% Season Off</h1>
-                        <p>
-                            This is a modified jumbotron that occupies the
-                            entire horizontal space of its parent.
-                        </p>
-                    </Container>
-                    <Button variant="danger">Learn more</Button>
-                </Jumbotron>
+                <Switch>
+                    <Route exact path="/">
+                        <Jumbotron className="background">
+                            <Container>
+                                <h1>20% Season Off</h1>
+                                <p>
+                                    This is a modified jumbotron that occupies
+                                    the entire horizontal space of its parent.
+                                </p>
+                            </Container>
+                            <Button variant="danger">Learn more</Button>
+                        </Jumbotron>
 
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-4">
-                            <img
-                                src="https://codingapple1.github.io/shop/shoes1.jpg"
-                                width="100%"
-                            />
-                            <h4>상품명</h4>
-                            <p>상품설명 & 가격</p>
+                        <div className="container">
+                            <div className="row">
+                                {data.map((a, i) => {
+                                    return (
+                                        <Item data={data[i]} i={i} key={i} />
+                                    );
+                                })}
+                            </div>
                         </div>
-                        <div className="col-md-4">
-                            <img
-                                src="https://codingapple1.github.io/shop/shoes2.jpg"
-                                width="100%"
-                            />
-                            <h4>상품명</h4>
-                            <p>상품설명 & 가격</p>
-                        </div>
-                        <div className="col-md-4">
-                            <img
-                                src="https://codingapple1.github.io/shop/shoes3.jpg"
-                                width="100%"
-                            />
-                            <h4>상품명</h4>
-                            <p>상품설명 & 가격</p>
-                        </div>
-                    </div>
-                </div>
-            </>
+                    </Route>
+
+                    <Route path="/detail">
+                        <Detail />
+                    </Route>
+
+                    <Route path="/:id">
+                        <div>안녕</div>
+                    </Route>
+                </Switch>
+            </div>
         </div>
     );
 }
 
+const Item = (props) => {
+    return (
+        <div className="col-md-4">
+            <img src={props.data.img} width="100%" />
+            <h4>{props.data.title}</h4>
+            <p>
+                {props.data.content} & {props.data.price}
+            </p>
+        </div>
+    );
+};
 export default App;
