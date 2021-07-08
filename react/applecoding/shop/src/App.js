@@ -51,7 +51,7 @@ function App() {
                     </Route>
 
                     <Route path="/detail">
-                        <Detail />
+                        <Detail data={data} />
                     </Route>
 
                     <Route path="/:id">

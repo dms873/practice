@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 
-const Detail = () => {
+const Detail = (props) => {
     let history = useHistory();
 
     return (
@@ -14,7 +14,7 @@ const Detail = () => {
                     />
                 </div>
                 <div className="col-md-6 mt-4">
-                    <h4 className="pt-5">상품명</h4>
+                    <h4 className="pt-5">{props.data[0].title}</h4>
                     <p>상품설명</p>
                     <p>120,000원</p>
                     <button className="btn btn-danger">주문하기</button>
