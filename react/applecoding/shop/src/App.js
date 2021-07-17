@@ -50,7 +50,7 @@ function App() {
                         </div>
                     </Route>
 
-                    <Route path="/detail">
+                    <Route path="/detail/:id">
                         <Detail data={data} />
                     </Route>
 

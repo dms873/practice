@@ -12,7 +12,7 @@ export default [
         title: "White and Black",
         content: "Born in Seoul",
         price: `110,000원`,
-        img: "https://lh3.googleusercontent.com/proxy/Ip-lT5TkMOuk3Rf-1B6DC4PEX96usBJyjUHXxOpVU9h6WuWzoIqtLKelICrPoeGabB8nvkUflqi3iZhhU2YjUsaqd09rMzG7PFjIQw6_dmZEQQTPRc8",
+        img: "https://image6.coupangcdn.com/image/retail/images/2020/09/07/11/6/971c8a59-eb68-432c-a8e7-698ba4ff8418.jpg",
     },
 
     {
