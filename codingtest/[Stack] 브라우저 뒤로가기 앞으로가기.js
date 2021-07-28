@@ -62,5 +62,3 @@ function browserStack(actions, start) {
     }
     return [prev, center, next];
 }
-
-//
