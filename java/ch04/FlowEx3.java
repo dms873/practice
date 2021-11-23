@@ -3,7 +3,7 @@ package ch04;
 import java.util.Scanner;
 
 public class FlowEx3 {
-  public static void main(String args[]) {
+  public static void main(String[] args) {
     int input;
 
     System.out.printf("숫자를 하나 입력하세요.>");
