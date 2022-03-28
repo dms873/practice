@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체크박스 선택</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        #contentBox {
+            width: 700px;
+            height: 200px;
+            border: 1px solid hotpink;
+        }
+
+        fieldset {
+            width: 675px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            $("#allCheck").on("click", function () {
+                console.log("전체선택 누름");
+                if ($(this).prop("checked") == false) {
+                    $(".category").prop("checked", false);
+                } else {
+                    $(".category").prop("checked", true);
+                }
+            })
+
+            $(".category").change(function () {
+                if ($(".category:checked").length == $(".category").length) {
+                    $("#allCheck").prop("checked", true);
+                } else {
+                    $("#allCheck").prop("checked", false);
+                }
+            })
+
+            // 내 풀이
+            $("#select").on("click", function () {
+                if ($("input").is(":checked")) {
+                    var str = "";
+                    for (var i = 1; i < ($("input").length); i++) {
+                        if ($("input").eq(i).is(":checked")) {
+                            str += $("label").eq(i).text() + " ";
+                            $("#contentBox").text(str);
+                        }
+                    }
+                };
+            })
+
+            // 재우오빠 풀이
+            // $("#select").on("click", function () {
+            //     var str = "";
+            //     $("input").each(function(index, item){
+            //         var now = $(item);
+            //         if(now.is(":checked")){
+            //             str += now.next().html() + " ";
+            //         }
+            //     });
+            //     $("#contentBox").html(str);
+            // })
+        })
+
+    </script>
+<!-- 우진오빠 풀이 -->
+<!-- <script>
+    //카테고리 선택 버튼을 누르면 눌렀던 애들을 출력하고 싶음.
+    function output() {
+        // 선택된 목록 가져오기
+        const query = 'input[class="category"]:checked';
+        const selectedEls = document.querySelectorAll(query);
+        console.log(query);
+        console.log(selectedEls);
+
+        // 선택된 목록에서 value 찾기 value값을 출력함, value값이 없다면 'on'이 출력됨.
+        let result = '';
+        selectedEls.forEach((el) => {
+            result += el.value + ' ';
+        });
+
+        // 출력
+        document.getElementById('contentBox').innerText = result;
+    }
+</script> -->
+
+    <fieldset>
+        <legend>취미</legend>
+        <table>
+            <tr>
+                <td><input type="checkbox" class="category" id="allCheck"><label for="allCheck">전체선택</label></td>
+                <td><input type="checkbox" class="category" id="category_1"><label for="category_1">종합</label></td>
+                <td><input type="checkbox" class="category" id="category_2"><label for="category_2">소설</label></td>
+                <td><input type="checkbox" class="category" id="category_3"><label for="category_3">시/에세이</label></td>
+                <td><input type="checkbox" class="category" id="category_4"><label for="category_4">경제/경영</label></td>
+                <td><input type="checkbox" class="category" id="category_5"><label for="category_5">자기계발</label></td>
+                <td><input type="checkbox" class="category" id="category_6"><label for="category_6">아동</label></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="checkbox" class="category" id="category_7"><label for="category_7">여행</label></td>
+                <td><input type="checkbox" class="category" id="category_8"><label for="category_8">과학</label></td>
+                <td><input type="checkbox" class="category" id="category_9"><label for="category_9">역사/문화</label></td>
+                <td><input type="checkbox" class="category" id="category_10"><label for="category_10">외국어</label></td>
+                <td><input type="checkbox" class="category" id="category_11"><label for="category_11">컴퓨터</label></td>
+                <td><input type="checkbox" class="category" id="category_12"><label for="category_12">만화</label></td>
+            </tr>
+        </table>
+    </fieldset>
+    <br>
+    <!-- onclick="output()" -->
+    <button id="select">카테고리 선택</button>
+    <div id="contentBox"></div>
+</body>
+
+</html>
