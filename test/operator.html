@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습문제2-계산기</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        input {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        $(function() {
+            $("#equal").on("click", function() {
+                if($("select").val() == 'plus') {
+                    var plus_result = Number(val_1.value) + Number(val_2.value);
+                    $("#result").val(plus_result);
+                } else if($("select").val() == 'minus') {
+                    var minus_result = Number(val_1.value) - Number(val_2.value);
+                    $("#result").val(minus_result);
+                } else if($("select").val() == 'multiply') {
+                    var multiply_result = Number(val_1.value) * Number(val_2.value);
+                    $("#result").val(multiply_result);
+                } else if($("select").val() == 'division') {
+                    var division_result = Number(val_1.value) / Number(val_2.value);
+                    $("#result").val(division_result);
+                    if($("#result").val() == "Infinity") {
+                        $("#result").css("backgroundColor", "red");
+                        $("#result").val("연산불가");
+                        $("#result").css("color", "white");
+                    } else {
+                        $("#result").css("backgroundColor", "white");
+                        $("#result").css("color", "black");
+                    }
+                } else if($("select").val() == 'percent') {
+                    var percent_result = Number(val_1.value) % Number(val_2.value);
+                    $("#result").val(percent_result);
+                    if($("#result").val() == "NaN") {
+                        $("#result").css("backgroundColor", "red");
+                        $("#result").val("연산불가");
+                        $("#result").css("color", "white");
+                    } else {
+                        $("#result").css("backgroundColor", "white");
+                        $("#result").css("color", "black");
+                    }
+                }
+            });
+
+
+        })
+    </script>
+
+    <h1>Practice2</h1>
+    <input type="number" id="val_1">
+    <select name="operator">
+        <option value="plus">+</option>
+        <option value="minus">-</option>
+        <option value="multiply">*</option>
+        <option value="division">/</option>
+        <option value="percent">%</option>
+    </select>
+    <input type="number" id="val_2">
+    <button id="equal">=</button>
+    <input type="text" id="result" readonly>
+</body>
+</html>
