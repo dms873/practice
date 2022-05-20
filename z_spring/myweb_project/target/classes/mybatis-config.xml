@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	
+	<!-- common-dbcp가 이 기능을 대신하며 root-context.xml에 설정되어 있음 -->
+	<!-- <properties></properties>
+	<environments default=""></environments> -->
+	
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+	
+	<!-- vo만들면 사용할 예정 -->
+	<!-- <typeAliases>
+		<typeAlias type=""/>
+	</typeAliases> -->
+	
+	<mappers>
+		<mapper resource="mappers/member-mapper.xml"/>
+	</mappers>
+	
+</configuration>

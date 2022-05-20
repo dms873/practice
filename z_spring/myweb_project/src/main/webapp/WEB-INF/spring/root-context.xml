@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="SCOTT"/>
+		<property name="password" value="SCOTT"/>
+	</bean>
+	
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
+		<!-- ref안에 들어간 값은 8번줄의 id 값, value를 적으면 dataSource글자를 대입하겠다는 뜻! -->
+		<property name="dataSource" ref="dataSource"/>
+		<!-- classpath는 src/main/resources임 -->
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+	</bean>
+	<!-- 자료형 : SqlSessionTemplate / 객체명 : sqlSession -->
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+		<!-- ref안에 들어간 값은 15번줄의 id 값 -->
+		<constructor-arg ref="sqlSessionFactory"/>
+	</bean>
+	
+	<!-- 방법1) -->
+<!-- 	<bean class="kh.spring.myweb.member.model.dao.MemberDao" id="memberDao" />
+	<bean class="kh.spring.myweb.member.mode.service.MemberService" id="memberService" /> -->
+</beans>
