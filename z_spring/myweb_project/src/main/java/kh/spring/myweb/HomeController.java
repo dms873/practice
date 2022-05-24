@@ -15,7 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import kh.spring.myweb.member.mode.service.MemberService;
+import kh.spring.myweb.member.model.service.MemberService;
 
 /**
  * Handles requests for the application home page.

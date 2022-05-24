@@ -23,6 +23,28 @@
 	
 	<context:component-scan base-package="kh.spring.myweb" />
 	
+	<!-- DB 연결은 보통 root-context.xml에 많이 작성하지만 servlet-context.xml에도 작성이 가능하다. -->	
+	<!-- DB 연결 -->
+	<!-- DBCP -->
+	<!-- <beans:bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource">
+		<beans:property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<beans:property name="username" value="SCOTT"/>
+		<beans:property name="password" value="SCOTT"/>
+	</beans:bean> -->
 	
+	<!-- MyBatis Session  -->
+	<!-- 
+	<beans:bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
+		ref안에 들어간 값은 8번줄의 id 값, value를 적으면 dataSource글자를 대입하겠다는 뜻!
+		<beans:property name="dataSource" ref="dataSource"/>
+		classpath는 src/main/resources임
+		<beans:property name="configLocation" value="classpath:mybatis-config.xml" />
+	</beans:bean>
+	자료형 : SqlSessionTemplate / 객체명 : sqlSession
+	<beans:bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+		ref안에 들어간 값은 15번줄의 id 값
+		<beans:constructor-arg ref="sqlSessionFactory"/>
+	</beans:bean> -->
 	
 </beans:beans>

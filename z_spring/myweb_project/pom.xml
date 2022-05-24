@@ -144,7 +144,6 @@
 		    <version>21.5.0.0</version>
 		</dependency>
 		<dependency>
-		<!-- ojdbc6 -->
 	        <groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc6</artifactId>
 			<version>11.2.0.4</version>

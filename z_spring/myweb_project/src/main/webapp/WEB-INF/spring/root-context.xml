@@ -5,6 +5,8 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
+	<!-- DB 연결 -->
+	<!-- DBCP -->
 	<bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource">
 		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
@@ -12,6 +14,7 @@
 		<property name="password" value="SCOTT"/>
 	</bean>
 	
+	<!-- MyBatis Session -->
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
 		<!-- ref안에 들어간 값은 8번줄의 id 값, value를 적으면 dataSource글자를 대입하겠다는 뜻! -->
 		<property name="dataSource" ref="dataSource"/>
